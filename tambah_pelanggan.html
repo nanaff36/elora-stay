@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Pelanggan - EloraStay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5d6e4;
+        }
+
+        .navbar {
+            background: #f8a8c9;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .menu a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .login-btn {
+            background: #ff4da6;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .card {
+            background: #fff;
+            width: 380px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            background: #ff4da6;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 13px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        input:focus {
+            border-color: #ff4da6;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-save {
+            flex: 1;
+            background: #ff4da6;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn-back {
+            flex: 1;
+            background: #eee;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background: #f8a8c9;
+            margin-top: 80px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div><strong>EloraStay</strong></div>
+    <div class="menu">
+        <a href="#">Beranda</a>
+        <a href="#">Daftar Kamar</a>
+        <a href="#">Reservasi Saya</a>
+        <a href="#">Pembayaran</a>
+        <a href="#" class="login-btn">Login</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Tambah Pelanggan</h2>
+        </div>
+
+        <form id="formPelanggan">
+            <label>Nama</label>
+            <input type="text" id="nama">
+
+            <label>Email</label>
+            <input type="email" id="email">
+
+            <label>No HP</label>
+            <input type="text" id="hp">
+
+            <label>Alamat</label>
+            <input type="text" id="alamat">
+
+            <div class="btn-group">
+                <button type="submit" class="btn-save">Simpan</button>
+                <button type="button" class="btn-back" onclick="kembali()">Kembali</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div>
+        <strong>EloraStay</strong><br>
+        Platform booking hotel terpercaya
+    </div>
+
+    <div>
+        Link Cepat<br>
+        Beranda<br>
+        Daftar Kamar<br>
+        Reservasi Saya
+    </div>
+
+    <div>
+        Hubungi Kami<br>
+        info@elorastay.com<br>
+        +62 123 456 7890
+    </div>
+</div>
+
+<script>
+    document.getElementById("formPelanggan").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let nama = document.getElementById("nama").value;
+        let email = document.getElementById("email").value;
+        let hp = document.getElementById("hp").value;
+        let alamat = document.getElementById("alamat").value;
+
+        if(nama === "" || email === "" || hp === "" || alamat === "") {
+            alert("Semua data harus diisi!");
+            return;
+        }
+
+        if(hp.length < 10) {
+            alert("Nomor HP tidak valid!");
+            return;
+        }
+
+        alert("Data pelanggan berhasil disimpan 🎉");
+
+        // reset form
+        document.getElementById("formPelanggan").reset();
+    });
+
+    function kembali() {
+        alert("Kembali ke halaman sebelumnya");
+        // contoh:
+        // window.location.href = "dashboard.html";
+    }
+</script>
+
+</body>
+</html>
